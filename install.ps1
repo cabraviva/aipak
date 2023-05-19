@@ -14,17 +14,17 @@ $downloadUrl = "https://github.com/$owner/$repo/releases/download/$tagName/aipak
 
 # Rest of the installation process remains the same
 $downloadPath = "$env:TEMP\aipak.exe"
-$installPath = "${env:ProgramFiles}\aipak"
+$installPath = "$env:USERPROFILE\aipak"
 $envPath = [Environment]::GetEnvironmentVariable("Path", "Machine")
 
 # Download the file
 Invoke-WebRequest -Uri $downloadUrl -OutFile $downloadPath
 
 # Create the installation directory
-New-Item -ItemType Directory -Path $installPath -Force | Out-Null
+mkdir $installPath -ErrorAction SilentlyContinue
 
 # Move the downloaded file to the installation directory
-Move-Item -Path $downloadPath -Destination $installPath -Force
+Move-Item -Path $downloadPath -Destination "$installPath\aipak.exe" -Force
 
 # Add the installation directory to the PATH
 if (-not ($envPath -split ';' | Select-String -Pattern $installPath)) {
