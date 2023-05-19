@@ -29,7 +29,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 18.x
-          cache: 'npm'
       # Installs nautus
       - run: npm i -g nautus
       # Builds the code
