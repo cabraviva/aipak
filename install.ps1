@@ -27,7 +27,7 @@ mkdir $installPath -ErrorAction SilentlyContinue
 Move-Item -Path $downloadPath -Destination "$installPath\aipak.exe" -Force
 
 # Add the installation directory to the PATH
-if (-not ($envPath -split ';' | Select-String -Pattern $installPath -SimpleMatch)) {
+if (-not $envPath.Split(';') -contains $installPath) {
     $newPath = $envPath + ";" + $installPath
     [Environment]::SetEnvironmentVariable("Path", $newPath, "Machine")
 }
