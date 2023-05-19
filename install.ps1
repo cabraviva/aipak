@@ -18,7 +18,7 @@ $installPath = "$env:USERPROFILE\aipak"
 $envPath = [Environment]::GetEnvironmentVariable("Path", "Machine")
 
 # Download the file
-Invoke-WebRequest -Uri $downloadUrl -OutFile $downloadPath
+#Invoke-WebRequest -Uri $downloadUrl -OutFile $downloadPath
 
 # Create the installation directory
 mkdir $installPath -ErrorAction SilentlyContinue
