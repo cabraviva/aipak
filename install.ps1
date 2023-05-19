@@ -27,10 +27,12 @@ mkdir $installPath -ErrorAction SilentlyContinue
 Move-Item -Path $downloadPath -Destination "$installPath\aipak.exe" -Force
 
 # Add the installation directory to the PATH
-if (-not ($envPath -split ';' | Select-String -Pattern $installPath)) {
+if (-not ($envPath -split ';' | Select-String -Pattern $installPath -SimpleMatch)) {
     $newPath = $envPath + ";" + $installPath
     [Environment]::SetEnvironmentVariable("Path", $newPath, "Machine")
 }
 
 # Refresh the environment variables
 $env:Path = [Environment]::GetEnvironmentVariable("Path", "Machine")
+
+# Run: iex (Invoke-RestMethod -Uri "https://raw.githubusercontent.com/greencoder001/aipak/main/install.ps1")
