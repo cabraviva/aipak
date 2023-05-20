@@ -18,13 +18,13 @@ if (!command || command.includes('help')) {
     process.exit(0)
 }
 
-if (command === 'install') {
+if (command === 'install' || command === 'i') {
     installCommand(argsSliced)
 } else if (command === 'reinstall') {
 
 } else if (command === 'update') {
 
-} else {
+}else {
     console.log(chalk.red(`Error: Unknown command ${command}`))
     process.exit(1)
 }
