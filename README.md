@@ -5,7 +5,13 @@
  - Scans websites for downloads
  - Scans download sites for malware
 
-# Todos:
-- Support scoop and choco packages
-- Elevate privelege => Admin
-- Uninstall Command
+# Install
+```sh
+npm i -g aipak
+```
+
+# Usage
+```sh
+aipak install Program Name
+# e.g.: aipak install 7zip
+```

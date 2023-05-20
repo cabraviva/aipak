@@ -6,6 +6,7 @@ import { platform } from 'os'
 const { version } = fs.readJSONSync(join(platform() === 'win32' ? dirname(import.meta.url).substring(7).substring(1) : dirname(import.meta.url).substring(7), '..', 'package.json'))
 import helpCommand from './commands/help.js'
 import installCommand from './commands/install.js'
+import updateCommand from './commands/update.js'
 
 const args = process.argv.slice(2)
 const command = args[0]
@@ -20,11 +21,9 @@ if (!command || command.includes('help')) {
 
 if (command === 'install' || command === 'i') {
     installCommand(argsSliced)
-} else if (command === 'reinstall') {
-
 } else if (command === 'update') {
-
-}else {
+    updateCommand(argsSliced)
+} else {
     console.log(chalk.red(`Error: Unknown command ${command}`))
     process.exit(1)
 }

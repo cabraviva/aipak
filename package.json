@@ -1,6 +1,6 @@
 {
     "name": "aipak",
-    "version": "0.1.1",
+    "version": "1.0.1",
     "description": "Your ultimate AI based package manager for Windows 📦",
     "main": "bin/main.js",
     "type": "module",
