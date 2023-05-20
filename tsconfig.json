@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "outDir": "./bin",
+        "strict": true,
+        "moduleResolution": "nodenext"
+    },
+    "include": [
+        "./src/"
+    ]
+}

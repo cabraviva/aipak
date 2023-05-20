@@ -38,8 +38,11 @@ module.exports = async (cmd, os, info, warn, error, exit, script, spawn, modules
     // If you want to exit and want to be sure your code doesn't run anymore,
     // use return exit() / return error()
 
-    return exit(await spawn('deno', ['run', '-A', 'src/main.ts', ...process.argv.slice(3)]))
+    
 
     /* PLEASE DON'T CHANGE METHOD NAMES, AS IT MIGHT BE REQUIRED BY RUNTIMES */
     /* PLEASE DON'T DELETE OR MODIFY THIS COMMENT, IT WILL BE USED TO INJECT SCRIPTS BY KELP */
+// Injected by kelp:
+exit(await spawn('node', ["bin/main.js", ...process.argv.slice(2)]))
+
 }
